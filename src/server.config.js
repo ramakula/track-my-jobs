@@ -1,15 +1,18 @@
 const DEV = process.env.DEV === 'true';
 
-/**
- * export empty array if not in dev mode
- */
+let devConfig, config;
+
 if (DEV) {
-  exports.devConfig = [require('morgan')('combined')];
-} else {
-  exports.devConfig = [];
+  devConfig = [
+    require('morgan')('combined'),
+    // add more here
+  ];
 }
 
-exports.config = [
+config = [
   require('express').json(),
   require('express').static(require('path').join(__dirname, 'client/build')),
+  // add more here
 ];
+
+module.exports = config.concat(devConfig || []);

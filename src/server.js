@@ -1,48 +1,20 @@
-const DEV = process.env.DEV === 'true';
+const server = require('express')();
+
+require('./server.config').forEach(config => server.use(config));
 
 /**
- * express server
+ * server routes
  */
-const express = require('express');
+server.use(`/api`, require('./api'));
+// add more here
 
 /**
- * server config
- */
-const { devConfig, config } = require('./server.config');
-
-/**
- * server
- */
-const server = express();
-
-/**
- * devConfig will be an empty array if not in dev mode
- */
-devConfig.forEach(c => server.use(c));
-
-config.forEach(c => server.use(c));
-
-/**
- * dev route
- */
-if (DEV) {
-  server.get(`/dev`, (req, res) => {
-    res.send({ server: `running` });
-  });
-}
-
-/**
- * routes
- */
-// add here
-
-/**
- * the "catchall" handler required when building project for production
+ * the "catchall" handler
  *
  * https://daveceddia.com/deploy-react-express-app-heroku/
  *
  */
-server.get('*', (req, res) => {
+server.get(`*`, (req, res) => {
   res.sendFile(require('path').join(__dirname + '/client/build/index.html'));
 });
 
