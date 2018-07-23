@@ -4,7 +4,9 @@
   "description": "A simple job tracker app",
   "main": "src/index.js",
   "scripts": {
-    "dev": "nodemon -r dotenv/config src/index.js"
+    "dev": "nodemon -r dotenv/config src/index.js",
+    "start": "node src/index.js",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
   },
   "repository": "https://github.com/samscha/track-my-jobs.git",
   "author": "Samuel Cha <sunchipssam@gmail.com>",
