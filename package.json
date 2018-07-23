@@ -5,7 +5,6 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "nodemon -r dotenv/config src/index.js",
-    "start": "nf start",
     "heroku-postbuild": "cd src/client && yarn && yarn run build"
   },
   "repository": "https://github.com/samscha/track-my-jobs.git",
