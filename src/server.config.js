@@ -1,6 +1,13 @@
 const DEV = process.env.DEV === 'true';
 
-exports.devConfig = [require('morgan')('combined')];
+/**
+ * export empty array if not in dev mode
+ */
+if (DEV) {
+  exports.devConfig = [require('morgan')('combined')];
+} else {
+  exports.devConfig = [];
+}
 
 exports.config = [
   require('express').json(),

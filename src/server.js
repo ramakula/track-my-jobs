@@ -15,9 +15,10 @@ const { devConfig, config } = require('./server.config');
  */
 const server = express();
 
-if (DEV) {
-  devConfig.forEach(c => server.use(c));
-}
+/**
+ * devConfig will be an empty array if not in dev mode
+ */
+devConfig.forEach(c => server.use(c));
 
 config.forEach(c => server.use(c));
 
