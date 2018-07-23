@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const Job = require('../../jobs/model');
 
@@ -24,6 +24,8 @@ UserSchema.pre('save', function(next) {
   if (!user.isModified('password')) return next();
 
   bcrypt.genSalt(SALT_FACTOR, (err, salt) => {
+    if (err) return next(err);
+
     bcrypt.hash(user.password, salt, (err, hash) => {
       if (err) return next(err);
 
