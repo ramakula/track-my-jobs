@@ -1,14 +1,7 @@
 const DEV = process.env.DEV === 'true';
 
 /**
- * dev dependencies
- */
-if (DEV) {
-  // add here
-}
-
-/**
- * dependencies
+ * express server
  */
 const express = require('express');
 
@@ -49,7 +42,7 @@ if (DEV) {
  *
  */
 server.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+  res.sendFile(require('path').join(__dirname + '/client/build/index.html'));
 });
 
 module.exports = server;
