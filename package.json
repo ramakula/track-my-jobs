@@ -12,13 +12,13 @@
   "author": "Samuel Cha <sunchipssam@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^3.0.0",
     "express": "^4.16.3",
     "mongoose": "^5.2.4",
     "path": "^0.12.7"
   },
   "devDependencies": {
     "dotenv": "^6.0.0",
-    "foreman": "^3.0.1",
     "morgan": "^1.9.0",
     "nodemon": "^1.18.3"
   }
