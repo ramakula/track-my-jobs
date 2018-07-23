@@ -1,4 +1,5 @@
 const server = require('express')();
+const db = require('./db');
 
 require('./server.config').forEach(config => server.use(config));
 
