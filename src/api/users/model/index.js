@@ -8,6 +8,7 @@ const Job = require('../../jobs/model');
 const UserSchema = new Schema(
   {
     email: { type: String, lowercase: true, unique: true, required: true },
+    password: { type: String, required: true },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     jobs: [{ type: Schema.Types.ObjectId, ref: 'Job' }],
@@ -21,12 +22,15 @@ UserSchema.pre('save', function(next) {
   const user = this;
   const SALT_FACTOR = process.env.SALT || 11;
 
+  if (!Number.isInteger(+SALT_FACTOR))
+    return next({ err: `SALT_FACTOR (${SALT_FACTOR}) is not a number` });
+
   if (!user.isModified('password')) return next();
 
-  bcrypt.genSalt(SALT_FACTOR, (err, salt) => {
+  bcrypt.genSalt(+SALT_FACTOR, function(err, salt) {
     if (err) return next(err);
 
-    bcrypt.hash(user.password, salt, (err, hash) => {
+    bcrypt.hash(user.password, salt, function(err, hash) {
       if (err) return next(err);
 
       user.password = hash;
