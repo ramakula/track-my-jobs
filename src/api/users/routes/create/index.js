@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const utils = require('./utils');
+const utils = require('../utils');
 
 router
   .route(`/`)
@@ -8,7 +8,7 @@ router
     utils.sanitize.userInfo,
     utils.check.dbConnection,
     utils.user.create,
-    (req, res) => res.send(req.savedUser),
+    (req, res) => res.send(res.locals.savedUser),
   );
 
 module.exports = router;

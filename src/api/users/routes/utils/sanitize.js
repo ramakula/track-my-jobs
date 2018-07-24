@@ -19,7 +19,6 @@ exports.userInfo = (req, res, next) => {
     sanitizedUser[field] = info;
   }
 
-  req.sanitizedUser = sanitizedUser;
-
+  res.locals.sanitizedUser = sanitizedUser;
   next();
 };
