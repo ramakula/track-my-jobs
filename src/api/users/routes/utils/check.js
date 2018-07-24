@@ -1,8 +1,5 @@
-exports.ifLoggedIn = (req, res, next) => {
-  if (!req.user) {
-    res.status(422).send({ message: `not logged in` });
-    return;
-  }
+exports.loggedIn = (req, res, next) => {
+  if (!req.user) return res.status(401).send({ message: `not logged in` });
 
   next();
 };
