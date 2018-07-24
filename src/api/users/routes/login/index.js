@@ -1,9 +1,11 @@
 const router = require('express').Router();
 
-const passport = require('../../../passport');
+const utils = require('./utils');
 
-router
-  .route(`/`)
-  .post(passport.authenticate('local'), (req, res) => res.send(req.user));
+router.route(`/`).post(utils.authenticate.user, (req, res) => {
+  // if (err) res.status(422).send({ err, message: `error logging in` });
+
+  res.send(req.user);
+});
 
 module.exports = router;

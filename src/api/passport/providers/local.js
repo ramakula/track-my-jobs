@@ -10,10 +10,11 @@ module.exports = new LocalStrategy(
 
       if (!user) return done(null, false, { message: `Incorrect username` });
 
-      user.comparePassword(password, (err, res) => {
+      user.comparePassword(password, (err, isMatch) => {
         if (err) done(err);
 
-        if (!res) return done(null, false, { message: `Incorrect password` });
+        if (!isMatch)
+          return done(null, false, { message: `Incorrect password` });
 
         return done(null, user);
       });
