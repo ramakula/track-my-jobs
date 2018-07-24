@@ -2,14 +2,16 @@ const passport = require('../../../../passport');
 
 exports.user = (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
-    if (err) return next(err);
+    if (err)
+      return res.status(500).send({ err, message: `error authenticating` });
 
-    if (!user) return res.status(422).send(info);
+    if (!user) return res.status(422).send({ message: info });
 
     req.login(user, function(err) {
-      if (err) return next(err);
+      if (err)
+        return res.status(500).send({ err, message: `error logging in` });
 
-      return next();
+      next();
     });
   })(req, res, next);
 };

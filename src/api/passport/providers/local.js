@@ -8,13 +8,12 @@ module.exports = new LocalStrategy(
     User.findOne({ email: username }, function(err, user) {
       if (err) return done(err);
 
-      if (!user) return done(null, false, { message: `Incorrect username` });
+      if (!user) return done(null, false, `No username with ${username} found`);
 
       user.comparePassword(password, (err, isMatch) => {
         if (err) done(err);
 
-        if (!isMatch)
-          return done(null, false, { message: `Incorrect password` });
+        if (!isMatch) return done(null, false, `Incorrect password`);
 
         return done(null, user);
       });
