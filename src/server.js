@@ -1,6 +1,13 @@
 const server = require('express')();
-const db = require('./db');
 
+/**
+ * connect to database
+ */
+require('./db').connectToDB();
+
+/**
+ * server configuration
+ */
 require('./server.config').forEach(config => server.use(config));
 
 /**

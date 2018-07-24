@@ -1,10 +1,12 @@
-let db;
+exports.connectToDB = _ => {
+  switch (process.env.DB) {
+    case 'MONGODB':
+      return require('./mongo');
 
-switch (process.env.DB) {
-  case 'MONGODB':
-    db = require('./mongo');
-    break;
-  // add other db cases here
-}
+    // add other db cases here
 
-exports.db = db;
+    default:
+      if (JSON.parse(process.env.DEBUG))
+        console.log(`db env var not specified`);
+  }
+};

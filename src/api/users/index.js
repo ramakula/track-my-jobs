@@ -8,5 +8,6 @@ const router = require('express').Router();
  */
 router.use(`/`, require('./routes/root'));
 router.use(`/create`, require('./routes/create'));
+router.use(`/login`, require('./routes/login'));
 
 module.exports = router;

@@ -49,7 +49,7 @@ UserSchema.statics.getAllUsers = function(cb) {
 };
 
 UserSchema.methods.comparePassword = function(pwd, cb) {
-  bcrypt.compare(pwd, this.pasword, (err, isMatch) => {
+  bcrypt.compare(pwd, this.password, (err, isMatch) => {
     if (err) return cb(err);
 
     return cb(null, isMatch);
