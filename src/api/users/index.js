@@ -3,7 +3,7 @@ const router = require('express').Router();
 /**
  * /api/users
  *
- * routes for users
+ * routes for users endpoint
  *
  */
 router.use(`/`, require('./routes/root'));

@@ -22,3 +22,14 @@ exports.userInfo = (req, res, next) => {
   res.locals.sanitizedUser = sanitizedUser;
   next();
 };
+
+exports.userResponse = user => {
+  return {
+    ...user._doc,
+    password: undefined,
+    _id: undefined,
+    createdAt: undefined,
+    updatedAt: undefined,
+    __v: undefined,
+  };
+};
