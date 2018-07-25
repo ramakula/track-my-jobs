@@ -1,5 +1,3 @@
-const DEV = JSON.parse(process.env.DEV);
-
 const {
   bodyParser,
   cors,
@@ -13,11 +11,8 @@ const {
 
 let devConfig, config;
 
-if (DEV) {
-  devConfig = [
-    require('morgan')('combined'),
-    // add more here
-  ];
+if (JSON.parse(process.env.DEV)) {
+  devConfig = [require('./server.dependencies').morgan];
 }
 
 config = [
@@ -25,14 +20,17 @@ config = [
    * parser
    */
   express.json(),
+
   /**
    * cors
    */
   cors(JSON.parse(process.env.CORS_OPTIONS)),
+
   /**
    * static files for frontend
    */
   express.static(path.join(__dirname, 'client/build')),
+
   /**
    * `passport` requirements
    * and `session` requirements for `passport`
@@ -43,6 +41,7 @@ config = [
   express.static('public'),
   session({
     ...JSON.parse(process.env.SESSION_OPTIONS),
+    cookie: { secure: JSON.parse(process.env.PROD) },
     secret: process.env.SESSION_SECRET,
     store: new mongoStore({
       mongooseConnection: mongoose.connection,
@@ -51,8 +50,6 @@ config = [
   bodyParser.urlencoded({ extended: false }),
   passport.initialize(),
   passport.session(),
-
-  // add more here
 ];
 
 module.exports = config.concat(devConfig || []);

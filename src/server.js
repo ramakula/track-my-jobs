@@ -1,6 +1,11 @@
 const server = require('express')();
 
 /**
+ * trust first proxy in production
+ */
+if (JSON.parse(process.env.PROD)) server.set('trust proxy', 1);
+
+/**
  * connect to database
  */
 require('./db').connectToDB();

@@ -1,6 +1,6 @@
 const MONGODB = JSON.parse(process.env.MONGODB);
 
-const mongoose = require('mongoose');
+const mongoose = require('../../server.dependencies').mongoose;
 
 if (JSON.parse(process.env.DEV)) {
   mongoose.connect(
