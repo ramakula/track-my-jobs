@@ -13,3 +13,9 @@ exports.user = (req, res, next) => {
     });
   })(req, res, next);
 };
+
+exports.logout = (req, res, next) => {
+  req.logout();
+
+  next();
+};
