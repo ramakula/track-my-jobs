@@ -23,6 +23,11 @@ exports.userInfo = (req, res, next) => {
   next();
 };
 
+/**
+ * note: this is not to be used with middleware
+ *
+ * @param {Object} user - req.user
+ */
 exports.userResponse = user => {
   return {
     ...user._doc,

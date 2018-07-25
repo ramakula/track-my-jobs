@@ -11,3 +11,12 @@ exports.create = (req, res, next) => {
     next();
   });
 };
+
+exports.delete = (req, res, next) => {
+  User.findByIdAndRemove({ _id: req.user.id }, err => {
+    if (err)
+      return res.status(500).send({ err, message: `error deleting user` });
+
+    next();
+  });
+};

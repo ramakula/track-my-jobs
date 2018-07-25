@@ -8,13 +8,16 @@ const User = require('../users/model');
 passport.use(localStrategy);
 // passport.use(twitterStrategy);
 
-passport.serializeUser((user, done) => {
+passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
 
-passport.deserializeUser((id, done) => {
+passport.deserializeUser(function(id, done) {
   User.findById(id, (err, user) => {
-    done(err, user);
+    console.log('err', err);
+    if (!err) done(null, user);
+    else done(err, user);
+    // done(err, user);
   });
 });
 
