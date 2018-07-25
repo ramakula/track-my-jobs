@@ -14,6 +14,13 @@ router
     utils.authenticate.user,
     (req, res) => res.send(utils.sanitize.userResponse(res.locals.savedUser)),
   )
+  .put(
+    utils.check.loggedIn,
+    utils.sanitize.userInfo,
+    utils.check.dbConnection,
+    utils.user.update,
+    (req, res) => res.send(utils.sanitize.userResponse(res.locals.updatedUser)),
+  )
   .delete(
     utils.check.loggedIn,
     utils.check.dbConnection,
