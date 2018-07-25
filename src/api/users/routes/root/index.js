@@ -4,8 +4,11 @@ const utils = require('../utils');
 
 router
   .route(`/`)
-  .get(utils.check.loggedIn, (req, res) =>
-    res.send(utils.sanitize.userResponse(req.user)),
+  .get(
+    utils.check.loggedIn,
+    utils.check.dbConnection,
+    /* */
+    (req, res) => res.send(utils.sanitize.userResponse(req.user)),
   )
   .post(
     utils.sanitize.userInfo,
