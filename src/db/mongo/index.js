@@ -9,7 +9,6 @@ if (JSON.parse(process.env.DEV)) {
     err => {
       if (err) {
         console.log(`Error connecting to ${MONGODB.DEV.path}`);
-
         return;
       }
 

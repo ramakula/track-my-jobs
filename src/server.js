@@ -8,7 +8,7 @@ if (JSON.parse(process.env.PROD)) server.set('trust proxy', 1);
 /**
  * connect to database
  */
-require('./db').connectToDB();
+require('./db').connectToDb();
 
 /**
  * server configuration

@@ -1,4 +1,4 @@
-exports.connectToDB = _ => {
+exports.connectToDb = _ => {
   switch (process.env.DB) {
     case 'MONGODB':
       return require('./mongo');
