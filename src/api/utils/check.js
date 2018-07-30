@@ -5,15 +5,13 @@ exports.loggedIn = (req, res, next) => {
 };
 
 exports.dbConnection = (req, res, next) => {
-  const dbConnectionState = require('../../../../db/utils/check').dbConnection();
+  const dbConnectionState = require('../../db/utils/check').dbConnection();
 
   switch (dbConnectionState.state) {
     case true:
-      next();
-      return;
+      return next();
     case false:
-      res.status(500).send({ message: dbConnectionState.message });
-      return;
+      return res.status(500).send({ message: dbConnectionState.message });
 
     default:
       if (JSON.parse(process.env.DEBUG))

@@ -6,14 +6,14 @@ const server = require('express')();
 if (JSON.parse(process.env.PROD)) server.set('trust proxy', 1);
 
 /**
- * connect to database
- */
-require('./db').connectToDb();
-
-/**
  * server configuration
  */
 require('./server.config').forEach(config => server.use(config));
+
+/**
+ * connect to database
+ */
+require('./db').connectToDb();
 
 /**
  * server routes

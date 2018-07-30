@@ -12,6 +12,10 @@ const JobSchema = new Schema(
     applied: { type: Date, default: Date.now },
     notes: { type: String },
     url: { type: String },
+    interview: { type: Date },
+    offer: { type: Date },
+    rejected: { type: Date },
+    archive: { type: Date },
   },
   {
     timestamps: true,
