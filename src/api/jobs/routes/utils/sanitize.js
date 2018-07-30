@@ -20,3 +20,13 @@ exports.jobInfo = (req, res, next) => {
   res.locals.sanitizedJob = sanitizedJob;
   next();
 };
+
+exports.job = job => {
+  return {
+    ...job._doc,
+    _id: undefined,
+    __v: undefined,
+    createdAt: undefined,
+    updatedAt: undefined,
+  };
+};
