@@ -4,6 +4,7 @@
   "description": "A simple job tracker app",
   "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
     "dev": "nodemon -r dotenv/config src/index.js",
     "heroku-postbuild": "cd src/client && yarn && yarn run build"
   },
@@ -27,9 +28,9 @@
     "morgan": "^1.9.0",
     "nodemon": "^1.18.3"
   },
-  "engines":{
-      "node":  ">=10.7.0",
-      "npm": ">= 6.2.0",
-      "yarn": ">= 1.7.0 "
+  "engines": {
+    "node": ">=10.7.0",
+    "npm": ">= 6.2.0",
+    "yarn": ">= 1.7.0 "
   }
 }
