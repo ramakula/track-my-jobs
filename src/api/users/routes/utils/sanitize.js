@@ -1,6 +1,6 @@
 const sanitize = require('../../../jobs/routes/utils/sanitize').job;
 
-exports.userInfo = (req, res, next) => {
+exports.info = (req, res, next) => {
   const USER_FIELDS = JSON.parse(process.env.USER_FIELDS || []);
   const sanitizedUser = {};
 
@@ -30,7 +30,7 @@ exports.userInfo = (req, res, next) => {
  *
  * @param {Object} user - req.user
  */
-exports.userResponse = user => {
+exports.user = user => {
   return {
     ...user._doc,
     password: undefined,

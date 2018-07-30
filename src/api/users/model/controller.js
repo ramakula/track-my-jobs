@@ -23,22 +23,6 @@ exports.retrieve = (req, res, next) => {
     });
 };
 
-exports.addJob = (req, res, next) => {
-  User.findByIdAndUpdate(
-    req.user.id,
-    { $push: { jobs: res.locals.newJob._id } },
-    { new: true },
-    (err, userWithAddedJob) => {
-      if (err)
-        return res
-          .status(500)
-          .send({ err, message: `error adding job to user` });
-
-      next();
-    },
-  );
-};
-
 /**
  * this controller is not used to update user email and password
  */
@@ -68,4 +52,19 @@ exports.delete = (req, res, next) => {
 
     next();
   });
+};
+
+exports.addJob = (req, res, next) => {
+  User.findByIdAndUpdate(
+    req.user.id,
+    { $push: { jobs: res.locals.newJob._id } },
+    (err, userWithAddedJob) => {
+      if (err)
+        return res
+          .status(500)
+          .send({ err, message: `error adding job to user` });
+
+      next();
+    },
+  );
 };
