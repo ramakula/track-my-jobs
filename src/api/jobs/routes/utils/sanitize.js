@@ -23,6 +23,11 @@ exports.jobInfo = (req, res, next) => {
   next();
 };
 
+/**
+ * note: this is not to be used with middleware
+ *
+ * @param {Object} job - job doc
+ */
 exports.job = job => {
   if (!JSON.parse(process.env.PROD)) return job;
 

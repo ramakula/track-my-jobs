@@ -4,9 +4,6 @@ const utils = require('../utils');
 
 router
   .route(`/`)
-  // .get(utils.check.dbConnection, utils.job.retrieve, (req, res) =>
-  //   res.send({ id: req.params.id }),
-  // )
   .post(
     utils.check.loggedIn,
     utils.sanitize.jobInfo,
@@ -23,8 +20,14 @@ router
   .get(utils.check.dbConnection, utils.job.retrieve, (req, res) =>
     res.send(utils.sanitize.job(res.locals.job)),
   )
-  .delete(utils.job.delete, utils.user.removeJob, (req, res) =>
-    res.status(204).send(),
+  .put(utils.check.dbConnection, (req, res) => {
+    //
+  })
+  .delete(
+    utils.check.dbConnection,
+    utils.job.delete,
+    utils.user.removeJob,
+    (req, res) => res.status(204).send(),
   );
 
 module.exports = router;

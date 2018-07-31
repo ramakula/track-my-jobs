@@ -36,6 +36,28 @@ exports.retrieve = (req, res, next) => {
  * to avoid `id` ever being `undefined`
  *
  */
+exports.update = (req, res, next) => {
+  const id = req.params.id;
+
+  Job.findByIdAndUpdate(
+    id,
+    {}, // finish this
+    (err,
+    updatedJob => {
+      if (err)
+        return res.status(500).send({ err, message: `error updating job` });
+
+      res.locals.updatedJob = updatedJob;
+      next();
+    }),
+  );
+};
+
+/**
+ * this middleware should ONLY be used with routes ending with `/:id`
+ * to avoid `id` ever being `undefined`
+ *
+ */
 exports.delete = (req, res, next) => {
   const _id = req.params.id;
 
