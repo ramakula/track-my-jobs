@@ -1,8 +1,5 @@
-import { fontFamily } from './font';
-
 const titleStyle = {
-  fontSize: '1.9rem',
-  fontFamily: fontFamily,
+  fontSize: '1.85rem',
 };
 
 export default titleStyle;

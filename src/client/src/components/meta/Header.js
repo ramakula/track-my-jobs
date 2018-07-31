@@ -1,10 +1,12 @@
 import React from 'react';
 
-import titleStyle from '../../css/title';
+const style = {
+  fontSize: '1.75rem',
+};
 
 const Header = _ => {
   return (
-    <div className="Header" style={titleStyle}>
+    <div className="Header" style={style}>
       Track My Jobs
     </div>
   );
