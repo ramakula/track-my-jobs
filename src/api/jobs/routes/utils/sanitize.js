@@ -17,11 +17,15 @@ exports.jobInfo = (req, res, next) => {
     sanitizedJob[field] = info;
   }
 
+  sanitizedJob['owner'] = req.user.id;
+
   res.locals.sanitizedJob = sanitizedJob;
   next();
 };
 
 exports.job = job => {
+  if (!JSON.parse(process.env.PROD)) return job;
+
   return {
     ...job._doc,
     _id: undefined,

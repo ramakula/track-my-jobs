@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+const user = require('../../users/model/controller');
+
 const JobSchema = new Schema(
   {
     company: { type: String, required: true },
@@ -16,10 +18,15 @@ const JobSchema = new Schema(
     offer: { type: Date },
     rejected: { type: Date },
     archive: { type: Date },
+    owner: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   },
   {
     timestamps: true,
   },
 );
+
+// JobSchema.post('remove', async function() {
+//   await user.removeJob(this._id);
+// });
 
 module.exports = mongoose.model(`Job`, JobSchema);

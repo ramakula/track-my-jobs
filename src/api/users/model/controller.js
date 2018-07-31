@@ -68,3 +68,18 @@ exports.addJob = (req, res, next) => {
     },
   );
 };
+
+exports.removeJob = (req, res, next) => {
+  User.findByIdAndUpdate(
+    req.user.id,
+    { $pull: { jobs: { _id: req.params.id } } },
+    (err, userWithDeletedJob) => {
+      if (err)
+        return res
+          .status(500)
+          .send({ err, message: `error deleting job from user` });
+
+      next();
+    },
+  );
+};
