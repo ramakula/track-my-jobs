@@ -31,6 +31,8 @@ exports.info = (req, res, next) => {
  * @param {Object} user - req.user
  */
 exports.user = user => {
+  if (!JSON.parse(process.env.PROD)) return user;
+
   return {
     ...user._doc,
     password: undefined,

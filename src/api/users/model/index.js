@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const bcrypt = require('bcryptjs');
 
-const Job = require('../../jobs/model');
+// const Job = require('../../jobs/model');
 
 const UserSchema = new Schema(
   {
