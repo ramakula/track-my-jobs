@@ -3,11 +3,10 @@ import withSizes from 'react-sizes';
 
 import Ahref from './meta/Ahref';
 
-import { centerFlex } from '../css/meta/flex';
-import { titleSizes } from '../css/meta/font';
+import { response, flex, font } from '../css/meta/index';
 
 const style = isMobile => ({
-  fontSize: isMobile ? titleSizes.sm : titleSizes.md,
+  fontSize: isMobile ? font.titleSizes.sm : font.titleSizes.md,
   margin: '10px 0 10px 0',
   textAlign: 'center',
 });
@@ -19,12 +18,12 @@ const Construction = ({ isMobile }) => {
         We're under construction!
       </div>
 
-      <div className="section" style={centerFlex}>
+      <div className="section" style={flex.center}>
         <ul
           className="links"
           style={{ listStyle: 'none', margin: '0 auto', padding: '0' }}
         >
-          <li className="links__el">
+          <li>
             <Ahref
               link="https://github.com/samscha/track-my-jobs"
               text="Github"
@@ -45,7 +44,7 @@ const Construction = ({ isMobile }) => {
 };
 
 const mapSizesToProps = ({ width }) => ({
-  isMobile: width < 500,
+  isMobile: response.isMobile(width),
 });
 
 export default withSizes(mapSizesToProps)(Construction);

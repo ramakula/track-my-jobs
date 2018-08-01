@@ -1,3 +1,3 @@
-const centerFlex = { display: 'flex', justifyContent: 'center' };
+const center = { display: 'flex', justifyContent: 'center' };
 
-export { centerFlex };
+export { center };
