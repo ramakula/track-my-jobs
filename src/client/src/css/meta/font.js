@@ -6,4 +6,9 @@ const fontSizes = {
   sm: '1.15rem',
 };
 
-export { fontFamily, fontSize, fontSizes };
+const titleSizes = {
+  sm: '1.95rem',
+  md: '2.4rem',
+};
+
+export { fontFamily, fontSize, fontSizes, titleSizes };
