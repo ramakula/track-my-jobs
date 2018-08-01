@@ -2,7 +2,7 @@
 
 ## A simple job tracker
 
-Track your jobs and show off your statistics!
+Track your jobs and show off your statistics! [Sign up here!](https://track-my-jobs.herokuapp.com)
 
 #### Motivation
 
