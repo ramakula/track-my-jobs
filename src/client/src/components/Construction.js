@@ -6,7 +6,7 @@ import Ahref from './meta/Ahref';
 import { response, flex, font } from '../css/meta/index';
 
 const style = isMobile => ({
-  fontSize: isMobile ? font.titleSizes.sm : font.titleSizes.md,
+  fontSize: font.getTitleSize(isMobile),
   margin: '10px 0 10px 0',
   textAlign: 'center',
 });
@@ -14,15 +14,12 @@ const style = isMobile => ({
 const Construction = ({ isMobile }) => {
   return (
     <div className="Construction">
-      <div className="title" style={style(isMobile)}>
+      <div className="ConstructionTitle" style={style(isMobile)}>
         We're under construction!
       </div>
 
-      <div className="section" style={flex.center}>
-        <ul
-          className="links"
-          style={{ listStyle: 'none', margin: '0 auto', padding: '0' }}
-        >
+      <div className="ConstructionMain" style={flex.center}>
+        <ul style={{ listStyle: 'none', margin: '0 auto', padding: '0' }}>
           <li>
             <Ahref
               link="https://github.com/samscha/track-my-jobs"

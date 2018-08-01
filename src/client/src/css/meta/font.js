@@ -11,4 +11,6 @@ const titleSizes = {
   md: '2.4rem',
 };
 
-export { fontFamily, fontSize, fontSizes, titleSizes };
+const getTitleSize = isMobile => (isMobile ? titleSizes.sm : titleSizes.md);
+
+export { fontFamily, fontSize, fontSizes, titleSizes, getTitleSize };
