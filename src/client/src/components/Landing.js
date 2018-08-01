@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from './meta/Header';
+import Footer from './meta/Footer';
 
 import Construction from './Construction';
 
@@ -11,6 +12,8 @@ class Landing extends Component {
         <Header />
 
         <Construction />
+
+        <Footer />
       </div>
     );
   }

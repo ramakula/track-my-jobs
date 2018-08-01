@@ -8,6 +8,8 @@ import { fontFamily, fontSize } from '../css/meta/font';
 const style = {
   fontFamily,
   fontSize,
+  minHeight: '50px',
+  minWidth: '300px',
 };
 
 class App extends Component {
