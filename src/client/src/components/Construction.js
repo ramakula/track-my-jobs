@@ -20,14 +20,14 @@ const Construction = ({ isMobile }) => {
 
       <div className="ConstructionMain" style={flex.center}>
         <ul style={{ listStyle: 'none', margin: '0 auto', padding: '0' }}>
-          <li>
+          <li style={{ textAlign: 'center' }}>
             <Ahref
               link="https://github.com/samscha/track-my-jobs"
               text="Github"
             />
           </li>
 
-          <li>
+          <li style={{ textAlign: 'center' }}>
             <Ahref
               link="mailto:chasamuels@gmail.com"
               text="Email"

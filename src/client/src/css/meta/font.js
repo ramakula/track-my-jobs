@@ -1,9 +1,15 @@
-const fontFamily = `  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`;
-const fontSize = '1.4rem';
+const fontSize = '1.35rem';
 
 const fontSizes = {
-  md: fontSize,
   sm: '1.15rem',
+
+  md: fontSize,
+};
+
+const textSizes = {
+  xsm: '0.75rem',
+  md: fontSize,
+  sm: '0.90rem',
 };
 
 const titleSizes = {
@@ -13,4 +19,4 @@ const titleSizes = {
 
 const getTitleSize = isMobile => (isMobile ? titleSizes.sm : titleSizes.md);
 
-export { fontFamily, fontSize, fontSizes, titleSizes, getTitleSize };
+export { fontSize, fontSizes, textSizes, titleSizes, getTitleSize };

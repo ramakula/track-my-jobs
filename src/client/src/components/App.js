@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Landing from './Landing';
+import * as c from './index';
 
-import { fontFamily, fontSize } from '../css/meta/font';
+import { fontSize } from '../css/meta/font';
 
 const style = {
-  fontFamily,
   fontSize,
-  minHeight: '50px',
-  minWidth: '300px',
+  height: '100vh',
 };
 
 class App extends Component {
@@ -18,7 +16,10 @@ class App extends Component {
       <Router>
         <div className="App" style={style}>
           <Switch>
-            <Route exact path="/" component={Landing} />
+            <Route exact path="/support" component={c.Support} />
+            <Route exact path="/donate" component={c.Donate} />
+            <Route exact path="/about" component={c.About} />
+            <Route exact path="/" component={c.Landing} />
           </Switch>
         </div>
       </Router>

@@ -1,9 +1,13 @@
+const dark = '#141414';
+
 const background = {
-  dark: '#141414',
+  dark: dark,
 };
 
 const font = {
+  dark: dark,
   light: 'white',
+  translucent: '#b1b1b1',
 };
 
 export { background, font };

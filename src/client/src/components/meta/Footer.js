@@ -1,22 +1,60 @@
 import React from 'react';
 
-import { background, font } from '../../css/meta/colors';
-import { fontSizes } from '../../css/meta/font';
+import { flex, colors, font } from '../../css/meta/index';
 
-const style = {
-  color: font.light,
-  background: background.dark,
-  fontSize: fontSizes.sm,
-  height: '25vh',
-};
+import styledLinkHelper from './StyledLink/StyledLink.helper';
+
+const style = _ => ({
+  background: colors.background.dark,
+  color: colors.font.light,
+  display: 'flex',
+  flexDirection: 'column',
+  fontSize: font.textSizes.sm,
+  padding: '25px 0',
+});
+
+const styleLinkHeader = _ => ({
+  fontSize: font.textSizes.sm,
+  margin: '0 25px 10px 25px',
+});
+
+const backgroundColor = colors.background.dark;
 
 const Footer = _ => {
   return (
-    <div className="Footer">
-      <div className="empty-space" style={{ height: '75vh' }} />
+    <div className="Footer" style={style()}>
+      <div
+        className="LinkSection"
+        style={{
+          ...flex.center,
+          flexDirection: 'row',
+          padding: '0 5px',
+          width: '100%',
+        }}
+      >
+        <div style={styleLinkHeader()}>
+          {styledLinkHelper('/about', 'About', backgroundColor)}
+        </div>
 
-      <div className="links" style={style}>
-        links
+        <div style={styleLinkHeader()}>
+          {styledLinkHelper('/support', 'Support', backgroundColor)}
+        </div>
+
+        <div style={styleLinkHeader()}>
+          {styledLinkHelper('/donate', 'Donate', backgroundColor)}
+        </div>
+      </div>
+
+      <div
+        className="CopyrightSection"
+        style={{
+          color: colors.font.translucent,
+          fontSize: font.textSizes.xsm,
+          margin: '5px 0 0 0',
+          textAlign: 'center',
+        }}
+      >
+        &copy;2018 All Rights Reserved
       </div>
     </div>
   );
