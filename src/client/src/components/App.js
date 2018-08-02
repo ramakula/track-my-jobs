@@ -8,6 +8,7 @@ import { fontSize } from '../css/meta/font';
 const style = {
   fontSize,
   height: '100vh',
+  // width: '100%',
 };
 
 class App extends Component {

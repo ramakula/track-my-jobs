@@ -29,7 +29,6 @@ const Footer = _ => {
           ...flex.center,
           flexDirection: 'row',
           padding: '0 5px',
-          width: '100%',
         }}
       >
         <div style={styleLinkHeader()}>
