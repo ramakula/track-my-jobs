@@ -20,7 +20,8 @@ class App extends Component {
             <Route exact path="/support" component={c.Support} />
             <Route exact path="/donate" component={c.Donate} />
             <Route exact path="/about" component={c.About} />
-            <Route exact path="/" component={c.Landing} />
+            {/* <Route exact path="/" component={c.Landing} /> */}
+            <Route exact path="/" component={c.Generic(c.Landing)} />
           </Switch>
         </div>
       </Router>

@@ -6,6 +6,10 @@ const fontSizes = {
   md: fontSize,
 };
 
+const headerSizes = {
+  md: '1.55rem',
+};
+
 const textSizes = {
   xsm: '0.75rem',
   md: fontSize,
@@ -19,4 +23,11 @@ const titleSizes = {
 
 const getTitleSize = isMobile => (isMobile ? titleSizes.sm : titleSizes.md);
 
-export { fontSize, fontSizes, textSizes, titleSizes, getTitleSize };
+export {
+  fontSize,
+  fontSizes,
+  headerSizes,
+  textSizes,
+  titleSizes,
+  getTitleSize,
+};
