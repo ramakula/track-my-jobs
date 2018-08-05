@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 import link from '../../../css/link';
 
 /**
- * styled React `Link` component
+ * styled div
  *
  * required `props`:
- *  - `uri`: the uri the `Link` should `to`
  *  - `text`: the text to show for the `Link`
  *
  * optional `props`:
@@ -16,7 +14,7 @@ import link from '../../../css/link';
  *  - `customStyle`: a JSON string with inline style properties
  *
  */
-class StyledLink extends Component {
+class StyledDiv extends Component {
   /**
    * initialize `colorSchema` with empty object keys
    * to avoid `undefined` errors before component mount
@@ -55,11 +53,12 @@ class StyledLink extends Component {
     const state = this.state.curr;
 
     return (
-      <div className="StyledLink">
-        <Link
-          to={`${this.props.uri}`}
+      <div className="StyledDiv">
+        <div
+          onClick={_ => this.props.onClickHandler()}
           style={{
             color: color[state],
+            cursor: 'pointer',
             backgroundColor: backgroundColor[state],
             padding: '2px',
             textDecoration: textDecoration[state],
@@ -70,10 +69,10 @@ class StyledLink extends Component {
           onMouseLeave={this.onMouseLeave}
         >
           {this.props.text}
-        </Link>
+        </div>
       </div>
     );
   }
 }
 
-export default StyledLink;
+export default StyledDiv;

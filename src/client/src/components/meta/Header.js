@@ -1,32 +1,40 @@
 import React from 'react';
 
+import StyledLink from './StyledLink/StyledLink';
+
 import { font } from '../../css/meta/index';
 
 const style = {
   display: 'flex',
   justifyContent: 'space-between',
+  margin: '0 0 25px 0',
   padding: '5px 10px',
 };
 
 const Header = _ => {
   return (
     <div className="Header" style={style}>
-      <div
-        style={{
-          // margin: '4px',
+      <StyledLink
+        uri="/"
+        text="Track My Jobs"
+        backgroundColor="#ffffff"
+        customStyle={JSON.stringify({
+          color: 'black',
           fontSize: font.headerSizes.md,
-        }}
-      >
-        Track My Jobs
-      </div>
+        })}
+      />
 
       <div className="portal" style={{ display: 'flex', flexDirection: 'row' }}>
-        <div
-          className="login"
-          style={{ margin: 'auto 10px', fontSize: font.fontSizes.sm }}
-        >
-          login
-        </div>
+        <StyledLink
+          uri="/login"
+          text="login"
+          customStyle={JSON.stringify({
+            color: 'black',
+            fontSize: font.fontSizes.sm,
+            margin: 'auto 10px',
+          })}
+        />
+
         <div
           className="signup"
           style={{

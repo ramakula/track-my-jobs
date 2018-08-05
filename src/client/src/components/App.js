@@ -21,6 +21,7 @@ class App extends Component {
             <Route exact path="/donate" component={c.Generic(c.Donate)} />
             <Route exact path="/about" component={c.Generic(c.About)} />
             <Route exact path="/" component={c.Generic(c.Landing)} />
+            <Route path="/" component={c.Generic(c.Four04)} />
           </Switch>
         </div>
       </Router>
