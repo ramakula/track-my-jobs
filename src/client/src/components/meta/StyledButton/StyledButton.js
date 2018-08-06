@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import button from '../../../css/meta/button';
+import button from '../../../css/button';
+
+import { textSizes } from '../../../css/meta/font';
 
 class StyledButton extends Component {
   state = {
@@ -44,7 +46,8 @@ class StyledButton extends Component {
           border: 'none',
           color: color[state],
           cursor: 'pointer',
-          height: '25px',
+          fontSize: textSizes.sm,
+          height: '40px',
           margin: '0 auto',
           outline: 'none',
           textDecoration: textDecoration[state],

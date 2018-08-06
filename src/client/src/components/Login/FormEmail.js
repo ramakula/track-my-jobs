@@ -16,8 +16,52 @@ const style = _ => ({
   // textAlign: 'center',
 });
 
+const renderField = ({
+  input,
+  label,
+  type,
+  meta: { touched, error, warning },
+}) => (
+  <div className="renderFieldComp" style={{ textAlign: 'left' }}>
+    <label
+      style={{
+        color: c.font.subtitle,
+        fontSize: f.textSizes.xsm,
+        // textAlign: 'left',
+        // width: '100%',
+      }}
+    >
+      {label}
+    </label>
+    <div className="renderFieldInputComp">
+      <input
+        {...input}
+        type={type}
+        style={{
+          border: 'none',
+          borderBottom: `1px solid ${c.font.translucent}`,
+          fontSize: f.textSizes.md,
+          margin: '10px 0',
+          outline: 'none',
+          padding: '0',
+          width: '100%',
+        }}
+      />
+      {touched &&
+        ((error && <span>{error}</span>) ||
+          (warning && <span>{warning}</span>))}
+    </div>
+  </div>
+);
+
 const FormEmail = props => {
-  const { handleSubmit, checkIfEmailExists } = props;
+  const {
+    handleSubmit,
+    pristine,
+    reset,
+    submitting,
+    checkIfEmailExists,
+  } = props;
 
   const handleSubmitHandler = ({ email }) => {
     checkIfEmailExists(email);
@@ -47,7 +91,7 @@ const FormEmail = props => {
           margin: '0 auto',
         }}
       >
-        <label
+        {/* <label
           htmlFor="email"
           style={{
             color: c.font.subtitle,
@@ -56,34 +100,36 @@ const FormEmail = props => {
           }}
         >
           email
-        </label>
+        </label> */}
         <Field
           name="email"
           label="email"
           placholder="email"
-          component="input"
+          component={renderField}
           type="text"
-          style={{
-            border: 'none',
-            borderBottom: `1px solid ${c.font.translucent}`,
-            fontSize: f.textSizes.sm,
-            margin: '10px 0',
-            outline: 'none',
-          }}
+          // style={{
+          //   border: 'none',
+          //   borderBottom: `1px solid ${c.font.translucent}`,
+          //   fontSize: f.textSizes.sm,
+          //   margin: '10px 0',
+          //   outline: 'none',
+          // }}
         />
 
         <div
+          className="bottomContainer"
           style={{
+            alignItems: 'center',
             display: 'flex',
             flexDirection: 'row',
-            alignItems: 'center',
+            margin: '10px 0',
           }}
         >
           <div
             className="createAccountLink"
             style={{
               color: 'blue',
-              fontSize: f.textSizes.xsm,
+              fontSize: f.textSizes.sm,
               margin: '10px 0',
               textAlign: 'left',
             }}

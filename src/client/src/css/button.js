@@ -1,4 +1,4 @@
-import { colors } from '../../css/meta/index';
+import { colors } from './meta';
 
 const buttonBlue = '#4d4dff';
 const buttonBlueLight = '#6161ff';
