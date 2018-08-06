@@ -10,6 +10,7 @@ const style = _ => ({
   display: 'flex',
   flexDirection: 'column',
   fontSize: font.textSizes.sm,
+  minHeight: '50px',
   padding: '25px 0',
 });
 

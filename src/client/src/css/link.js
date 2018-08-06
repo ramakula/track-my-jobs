@@ -13,9 +13,9 @@ const _defaultBackgroundColor = {
 };
 
 const _defaultTextDecoration = {
-  normal: 'none',
-  hover: 'none',
   active: 'underline',
+  hover: 'none',
+  normal: 'none',
 };
 
 const link = (

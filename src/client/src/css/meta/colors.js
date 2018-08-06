@@ -7,6 +7,7 @@ const background = {
 const font = {
   dark: dark,
   light: 'white',
+  subtitle: '#545454',
   translucent: '#b1b1b1',
 };
 

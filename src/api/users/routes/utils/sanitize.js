@@ -43,3 +43,12 @@ exports.user = user => {
     jobs: user.jobs.map(job => sanitize(job)),
   };
 };
+
+exports.loginCheck = (req, res, next) => {
+  const { email } = req.body;
+
+  if (!email) return res.status(422).send({ message: `email not provided` });
+
+  res.locals.email = email;
+  next();
+};

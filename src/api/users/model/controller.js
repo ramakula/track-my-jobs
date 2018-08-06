@@ -83,3 +83,15 @@ exports.removeJob = (req, res, next) => {
     },
   );
 };
+
+exports.checkIfExists = (req, res, next) => {
+  User.findOne({ email: res.locals.email }, (err, foundUser) => {
+    if (err)
+      return res.status(500).send({ err, message: `error searching for user` });
+
+    if (!foundUser) return res.status(422).send({ message: `email not found` });
+
+    res.locals.foundUser = foundUser;
+    next();
+  });
+};
