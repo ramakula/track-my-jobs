@@ -1,26 +1,19 @@
 import React from 'react';
 
-import * as f from '../../css/meta/font';
-import * as c from '../../css/meta/colors';
+import * as f from '../../../../css/meta/font';
+import * as c from '../../../../css/meta/colors';
 
-export const renderFieldEmail = ({
-  input,
-  label,
-  type,
-  meta: { touched, error, warning },
-}) => (
-  <div className="renderFieldComp" style={{ textAlign: 'left' }}>
+export default ({ input, label, type, meta: { touched, error, warning } }) => (
+  <div className="RenderFieldComp" style={{ textAlign: 'left' }}>
     <label
       style={{
         color: c.font.subtitle,
         fontSize: f.textSizes.xsm,
-        // textAlign: 'left',
-        // width: '100%',
       }}
     >
       {label}
     </label>
-    <div className="renderFieldInputComp">
+    <div className="RenderFieldInputComp">
       <input
         {...input}
         type={type}

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import withSizes from 'react-sizes';
 
-import FormEmail from './FormEmail';
+import FormEmail from './Email';
 
 import * as c from '../../css/meta/colors';
 import { response } from '../../css/meta/index';
@@ -59,7 +59,7 @@ class Login extends Component {
             width: '300px',
           }}
         >
-          <div className="formComponent">{this._getStage()}</div>
+          <div className="FormComponent">{this._getStage()}</div>
 
           {/* <form
             onSubmit={handleSubmit}

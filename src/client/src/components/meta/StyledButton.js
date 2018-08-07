@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import button from '../../../css/button';
+import button from '../../css/button';
 
-import { textSizes } from '../../../css/meta/font';
+import { textSizes } from '../../css/meta/font';
 
 class StyledButton extends Component {
   state = {
