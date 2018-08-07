@@ -2,12 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 
-import { u } from '../../actions';
-
 import styledButtonHelper from '../meta/StyledButton/StyledButton.helper';
 
+import { v } from '../meta/reduxForm';
+
+import { renderFieldEmail } from './renderField';
+import * as s from './customSubmit';
+
 import * as f from '../../css/meta/font';
-import * as c from '../../css/meta/colors';
+// import * as c from '../../css/meta/colors';
 
 const style = _ => ({
   // display: 'flex',
@@ -16,56 +19,17 @@ const style = _ => ({
   // textAlign: 'center',
 });
 
-const renderField = ({
-  input,
-  label,
-  type,
-  meta: { touched, error, warning },
-}) => (
-  <div className="renderFieldComp" style={{ textAlign: 'left' }}>
-    <label
-      style={{
-        color: c.font.subtitle,
-        fontSize: f.textSizes.xsm,
-        // textAlign: 'left',
-        // width: '100%',
-      }}
-    >
-      {label}
-    </label>
-    <div className="renderFieldInputComp">
-      <input
-        {...input}
-        type={type}
-        style={{
-          border: 'none',
-          borderBottom: `1px solid ${c.font.translucent}`,
-          fontSize: f.textSizes.md,
-          margin: '10px 0',
-          outline: 'none',
-          padding: '0',
-          width: '100%',
-        }}
-      />
-      {touched &&
-        ((error && <span>{error}</span>) ||
-          (warning && <span>{warning}</span>))}
-    </div>
-  </div>
-);
+export const formName = 'checkEmail';
 
 const FormEmail = props => {
   const {
-    handleSubmit,
-    pristine,
-    reset,
+    handleSubmit, // pristine,
+    // reset,
     submitting,
-    checkIfEmailExists,
+    // checkIfEmailExists,
+    // changeLoginStage,
+    // submitting,
   } = props;
-
-  const handleSubmitHandler = ({ email }) => {
-    checkIfEmailExists(email);
-  };
 
   return (
     <div className="FormEmail" style={style()}>
@@ -84,7 +48,7 @@ const FormEmail = props => {
       </div>
 
       <form
-        onSubmit={handleSubmit(handleSubmitHandler)}
+        onSubmit={handleSubmit(s.email)}
         style={{
           display: 'flex',
           flexDirection: 'column',
@@ -105,7 +69,9 @@ const FormEmail = props => {
           name="email"
           label="email"
           placholder="email"
-          component={renderField}
+          component={renderFieldEmail}
+          validate={[v.required, v.email]}
+          // validate={v.email}
           type="text"
           // style={{
           //   border: 'none',
@@ -137,7 +103,20 @@ const FormEmail = props => {
             create an account
           </div>
 
-          {styledButtonHelper('next', JSON.stringify({ margin: '0 0 0 auto' }))}
+          {styledButtonHelper(
+            'next',
+            JSON.stringify({ margin: '0 0 0 auto' }),
+            submitting,
+            // props.user.isChecking,
+          )}
+
+          {/* <button
+            type="button"
+            disabled={pristine || submitting}
+            onClick={reset}
+          >
+            Clear Values
+          </button> */}
         </div>
       </form>
     </div>
@@ -147,19 +126,20 @@ const FormEmail = props => {
 const mapStateToProps = state => {
   return {
     form: state.form,
+    user: state.user,
   };
 };
 
-const checkIfEmailExists = u.checkIfEmailExists;
+// const checkIfEmailExists = u.checkIfEmailExists;
 
 export default reduxForm({
-  form: 'username',
+  form: formName,
   fields: ['email'],
 })(
   connect(
     mapStateToProps,
     {
-      checkIfEmailExists,
+      // checkIfEmailExists,
     },
   )(FormEmail),
 );

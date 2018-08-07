@@ -41,14 +41,18 @@ class StyledButton extends Component {
       // <div className="StyledButton">
       <button
         className="StyledButton"
+        // disabled={this.props.disabled}
+        disabled={this.props.disabled}
+        type="submit"
         style={{
           backgroundColor: backgroundColor[state],
           border: 'none',
           color: color[state],
-          cursor: 'pointer',
+          cursor: this.props.disabled ? 'not-allowed' : 'pointer',
           fontSize: textSizes.sm,
           height: '40px',
           margin: '0 auto',
+          opacity: this.props.disabled ? '0.2' : '1',
           outline: 'none',
           textDecoration: textDecoration[state],
           width: '70px',

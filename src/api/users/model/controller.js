@@ -89,7 +89,8 @@ exports.checkIfExists = (req, res, next) => {
     if (err)
       return res.status(500).send({ err, message: `error searching for user` });
 
-    if (!foundUser) return res.status(422).send({ message: `email not found` });
+    if (!foundUser)
+      return res.status(422).send({ message: `account not found` });
 
     res.locals.foundUser = foundUser;
     next();

@@ -14,7 +14,7 @@ router
     utils.check.dbConnection,
     utils.sanitize.loginCheck,
     utils.user.checkIfExists,
-    (req, res) => res.status(200).send({ email: res.locals.foundUser.email }),
+    (req, res) => res.status(204).send(),
   );
 
 module.exports = router;

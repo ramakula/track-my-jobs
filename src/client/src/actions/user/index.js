@@ -1,5 +1,5 @@
-import { root } from '../index';
-import axios from 'axios';
+// import axios from 'axios';
+// import { root } from '../index';
 
 export const USER_CHECK_START = 'USER_CHECK_START';
 export const USER_CHECK_SUCCESS = 'USER_CHECK_SUCCESS';
@@ -7,22 +7,24 @@ export const USER_CHECK_ERROR = 'USER_CHECK_ERROR';
 export const USER_CHECK_FINISH = 'USER_CHECK_FINISH';
 
 export const checkIfEmailExists = email => {
-  return dispatch => {
-    dispatch({ type: USER_CHECK_START });
+  return {};
 
-    axios
-      .post(`${root}/users/login/check`, { email })
-      .then(({ data }) => {
-        dispatch({ type: USER_CHECK_SUCCESS, payload: data.email });
-        dispatch({ type: USER_CHECK_FINISH });
-      })
-      .catch(err => {
-        dispatch({
-          type: USER_CHECK_ERROR,
-          payload: err.response.data.message,
-        });
+  // return dispatch => {
+  //   dispatch({ type: USER_CHECK_START });
 
-        dispatch({ type: USER_CHECK_FINISH });
-      });
-  };
+  //   axios
+  //     .post(`${root}/users/login/check`, { email })
+  //     .then(({ data }) => {
+  //       dispatch({ type: USER_CHECK_SUCCESS, payload: data.email });
+  //       dispatch({ type: USER_CHECK_FINISH });
+  //     })
+  //     .catch(err => {
+  //       dispatch({
+  //         type: USER_CHECK_ERROR,
+  //         payload: err.response.data.message,
+  //       });
+
+  //       dispatch({ type: USER_CHECK_FINISH });
+  //     });
+  // };
 };

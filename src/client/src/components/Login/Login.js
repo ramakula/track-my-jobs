@@ -28,8 +28,13 @@ class Login extends Component {
     this.setState({ stage: 1 });
   }
 
+  changeLoginStage = stage => {
+    this.setState({ stage: stage });
+  };
+
   _getStage = _ => {
-    if (this.state.stage === 1) return <FormEmail />;
+    if (this.state.stage === 1)
+      return <FormEmail changeLoginStage={this.changeLoginStage} />;
 
     return <div />;
   };
