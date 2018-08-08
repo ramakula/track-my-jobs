@@ -29,7 +29,7 @@ const FormEmail = props => {
           name="email"
           label="email"
           component={c.RenderField}
-          validate={[u.validation.required, u.validation.email]}
+          validate={[u.validation.requiredEmail, u.validation.email]}
           type="text"
         />
 

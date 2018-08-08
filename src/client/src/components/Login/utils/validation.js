@@ -3,5 +3,10 @@ export const email = value =>
     ? 'invalid email address'
     : undefined;
 
+export const requiredEmail = value =>
+  value || typeof value === 'number'
+    ? undefined
+    : 'please enter an email address';
+
 export const required = value =>
-  value || typeof value === 'number' ? undefined : 'required';
+  value || typeof value === 'number' ? undefined : 'required field';
