@@ -9,7 +9,7 @@ import FormPass from './Pass';
 import * as u from './utils';
 
 import * as c from '../../css/meta/colors';
-import { response } from '../../css/meta/index';
+import { response } from '../../css/meta';
 
 const EMAIL_FORM = u.formNames.email;
 
