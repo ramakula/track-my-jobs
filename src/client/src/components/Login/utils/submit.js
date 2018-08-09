@@ -2,24 +2,28 @@ import { SubmissionError } from 'redux-form';
 
 import axios from '../../../pkgs/axios';
 
-// import * as u from './index';
-// console.log(u.formNames);
-// const formNames = u.formNames;
+import { root } from '../../../actions';
 
-const email = ({ email }) => {
-  // startSubmit(formName);
+let em;
 
-  return (
-    axios
-      .post(`/api/users/login/check`, { email })
-      // .then(_ => stopSubmit(formName))
-      .then(_ => _)
-      .catch(err => {
-        throw new SubmissionError({
-          email: err.response.data.message,
-        });
-      })
-  );
+export const email = email => {
+  return axios
+    .post(`${root}/users/login/check`, email)
+    .then()
+    .catch(err => {
+      throw new SubmissionError({
+        email: err.response.data.message,
+      });
+    });
 };
 
-export { email };
+export const password = user => {
+  return axios
+    .post(`${root}/users/login`, user)
+    .then(({ data }) => data)
+    .catch(err => {
+      throw new SubmissionError({
+        password: err.response.data.message,
+      });
+    });
+};

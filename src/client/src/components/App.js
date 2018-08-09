@@ -22,6 +22,11 @@ class App extends Component {
           <div className="App" style={style}>
             <Switch>
               <Route exact path="/about" component={c.Generic(c.About)} />
+              <Route
+                exact
+                path="/dashboard"
+                component={c.Generic(c.Dashboard)}
+              />
               <Route exact path="/donate" component={c.Generic(c.Donate)} />
               <Route exact path="/login" component={c.Generic(c.Login)} />
               <Route exact path="/support" component={c.Generic(c.Support)} />

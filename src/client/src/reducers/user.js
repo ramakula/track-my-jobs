@@ -1,33 +1,29 @@
 import { u } from '../actions/index';
 
 const initialState = {
-  user: '',
+  user: {},
   err: '',
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case u.USER_CHECK_START:
-      return {
-        ...state,
-      };
+    case u.USER_LOGIN_START:
+      return { ...state };
 
-    case u.USER_CHECK_SUCCESS:
+    case u.USER_LOGIN_SUCCESS:
       return {
         ...state,
         user: action.payload,
       };
 
-    case u.USER_CHECK_ERROR:
+    case u.USER_LOGIN_ERROR:
       return {
         ...state,
         err: action.payload,
       };
 
-    case u.USER_CHECK_FINISH:
-      return {
-        ...state,
-      };
+    case u.USER_LOGIN_FINISH:
+      return { ...state };
 
     default:
       return { ...state };

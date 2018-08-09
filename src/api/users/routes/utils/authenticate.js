@@ -3,7 +3,7 @@ exports.user = (req, res, next) => {
     if (err)
       return res.status(500).send({ err, message: `error authenticating` });
 
-    if (!user) return res.status(422).send({ message: info });
+    if (!user) return res.status(422).send(info);
 
     req.login(user, function(err) {
       if (err)

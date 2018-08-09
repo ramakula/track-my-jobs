@@ -1,3 +1,4 @@
 const email = 'FormEmail';
+const pass = 'FormPass';
 
-export { email };
+export { email, pass };
