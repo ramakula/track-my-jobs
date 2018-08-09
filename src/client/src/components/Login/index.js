@@ -8,29 +8,17 @@ import FormPass from './Pass';
 
 import * as u from './utils';
 
-import * as c from '../../css/meta/colors';
+import * as css from './css';
+
 import { response } from '../../css/meta';
 
 const EMAIL_FORM = u.formNames.email;
 
-const style = _ => ({
-  height: '100%',
-  textAlign: 'center',
-});
-
 class Login extends Component {
   render() {
     return (
-      <div className="Login" style={style()}>
-        <div
-          className="FormContainer"
-          style={{
-            border: `1px solid ${c.font.translucent}`,
-            margin: '0 auto',
-            padding: '30px',
-            width: '300px',
-          }}
-        >
+      <div className="Login" style={css.Login()}>
+        <div className="FormContainer" style={css.FormContainer()}>
           <div className="FormComponent" hidden={this.props.submitSucceeded}>
             <FormEmail />
           </div>
