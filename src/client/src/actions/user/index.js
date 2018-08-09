@@ -1,6 +1,6 @@
-import axios from 'axios';
-import { root } from '../index';
-import { SubmissionError } from 'redux-form';
+// import axios from 'axios';
+// import { root } from '../index';
+// import { SubmissionError } from 'redux-form';
 
 export const USER_LOGIN_START = 'USER_LOGIN_START';
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
@@ -15,19 +15,16 @@ export const authenticate = (user, history) => {
 };
 
 export const login = (user, history) => {
-  console.log('login');
   return dispatch => {
-    console.log('disp login');
-    dispatch({ type: USER_LOGIN_START });
-
-    // axios
-    //   .post(`${root}/users/login`, user)
-    //   .then(({ data }) => {
-    dispatch({ type: USER_LOGIN_SUCCESS, payload: user });
-    dispatch({ type: USER_LOGIN_FINISH });
-    history.push('/dashboard');
-    // })
-    // .catch(err => {
+    //   dispatch({ type: USER_LOGIN_START });
+    //   // axios
+    //   //   .post(`${root}/users/login`, user)
+    //   //   .then(({ data }) => {
+    //   dispatch({ type: USER_LOGIN_SUCCESS, payload: user });
+    //   dispatch({ type: USER_LOGIN_FINISH });
+    //   history.push('/dashboard');
+    //   // })
+    //   // .catch(err => {
     //   return err.response.data.message;
     //   // dispatch({
     //   //   type: USER_LOGIN_ERROR,
@@ -38,9 +35,7 @@ export const login = (user, history) => {
     //     password: err.response.data.message,
     //   });
     // });
-
     // history.push('/dashboard');
-
     // axios
     //   .post(`${root}/users/login`, user)
     //   .then(({ data }) => {
@@ -56,9 +51,7 @@ export const login = (user, history) => {
     //       password: err.response.data.message,
     //     });
     //   });
-
     // console.log('user', user);
-
     //   axios
     //     .post(`${root}/users/login/check`, { email })
     //     .then(({ data }) => {
@@ -70,7 +63,6 @@ export const login = (user, history) => {
     //         type: USER_CHECK_ERROR,
     //         payload: err.response.data.message,
     //       });
-
     //       dispatch({ type: USER_CHECK_FINISH });
     //     });
   };

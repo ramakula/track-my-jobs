@@ -4,8 +4,6 @@ import axios from '../../../pkgs/axios';
 
 import { root } from '../../../actions';
 
-let em;
-
 export const email = email => {
   return axios
     .post(`${root}/users/login/check`, email)
