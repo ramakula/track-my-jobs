@@ -17,6 +17,7 @@ export default ({ input, label, type, meta: { touched, error, warning } }) => (
       <input
         {...input}
         type={type}
+        autoFocus={true}
         style={{
           border: 'none',
           borderBottom: `1px solid ${c.font.translucent}`,

@@ -15,7 +15,7 @@ export default props => (
       className="FormSubtitle"
       style={{ fontSize: f.textSizes.sm, margin: '0 0 10px 0' }}
     >
-      {props.values ? props.values.email : ''}
+      {props.email}
     </div>
   </div>
 );

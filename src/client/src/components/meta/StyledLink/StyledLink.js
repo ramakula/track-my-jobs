@@ -24,7 +24,11 @@ class StyledLink extends Component {
    */
   state = {
     curr: '',
-    colorSchema: { color: {}, backgroundColor: {}, textDecoration: {} },
+    colorSchema: {
+      color: {},
+      backgroundColor: {},
+      textDecoration: {},
+    },
   };
 
   componentDidMount() {
@@ -61,6 +65,7 @@ class StyledLink extends Component {
           style={{
             color: color[state],
             backgroundColor: backgroundColor[state],
+            outline: 'none',
             padding: '2px',
             textDecoration: textDecoration[state],
             ...JSON.parse(customStyle),

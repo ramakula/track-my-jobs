@@ -53,7 +53,7 @@ class StyledButton extends Component {
           height: '40px',
           margin: '0 auto',
           opacity: this.props.disabled ? '0.2' : '1',
-          outline: 'blue',
+          outline: 'red',
           textDecoration: textDecoration[state],
           width: '70px',
           ...JSON.parse(customStyle),

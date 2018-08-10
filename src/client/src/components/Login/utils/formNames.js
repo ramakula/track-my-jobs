@@ -1,4 +1,4 @@
-const email = 'FormEmail';
-const pass = 'FormPass';
+const email = 'EmailForm';
+const password = 'PasswordForm';
 
-export { email, pass };
+export { email, password };

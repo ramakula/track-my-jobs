@@ -8,8 +8,10 @@ const style = _ => ({
 class Dashboard extends Component {
   render() {
     return (
-      <div className="Donate" style={style()}>
-        {JSON.stringify(this.props.user)}
+      <div className="Dashboard" style={style()}>
+        <p style={{ overflowWrap: 'break-word', padding: '25px' }}>
+          {JSON.stringify(this.props.user)}
+        </p>
       </div>
     );
   }

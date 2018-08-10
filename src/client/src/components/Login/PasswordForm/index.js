@@ -1,33 +1,29 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { reduxForm, Field, getFormValues } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 
 import * as u from '../utils';
 import * as a from '../../../actions';
 
 import * as c from './components';
 
-const FORM_NAME = u.formNames.pass;
-const EMAIL_FORM = u.formNames.email;
+const FORM_NAME = u.formNames.password;
 
 const style = _ => ({});
 
-const FormPass = props => {
-  const { handleSubmit, submitting, values, history } = props;
+const PasswordForm = props => {
+  const { handleSubmit, submitting, history, email } = props;
 
   const submit = async ({ password }, dispatch) => {
     return dispatch(
-      a.u.authenticate(
-        await u.submit.password({ email: values.email, password }),
-        history,
-      ),
+      a.u.authenticate(await u.submit.password({ email, password }), history),
     );
   };
 
   return (
-    <div className="FormPass" style={style()}>
-      <c.FormDescription values={values} />
+    <div className="PasswordForm" style={style()}>
+      <c.FormDescription email={email} />
 
       <form
         onSubmit={handleSubmit(submit)}
@@ -70,7 +66,6 @@ const FormPass = props => {
 const mapStateToProps = state => {
   return {
     form: state.form,
-    values: getFormValues(`${EMAIL_FORM}`)(state),
   };
 };
 
@@ -81,5 +76,5 @@ export default reduxForm({
   connect(
     mapStateToProps,
     {},
-  )(withRouter(FormPass)),
+  )(withRouter(PasswordForm)),
 );
