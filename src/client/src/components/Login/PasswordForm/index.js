@@ -23,7 +23,7 @@ const PasswordForm = props => {
 
   return (
     <div className="PasswordForm" style={style()}>
-      <c.FormDescription email={email} />
+      <c.FormDescription email={email} changeComp={props.changeComp} />
 
       <form
         onSubmit={handleSubmit(submit)}
@@ -56,6 +56,7 @@ const PasswordForm = props => {
             text="next"
             customStyle={JSON.stringify({ margin: '0 0 0 auto' })}
             submitting={submitting}
+            changeComp={props.changeComp}
           />
         </div>
       </form>

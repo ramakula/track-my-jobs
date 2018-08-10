@@ -55,7 +55,7 @@ class StyledDiv extends Component {
     return (
       <div className="StyledDiv">
         <div
-          onClick={_ => this.props.onClickHandler()}
+          onClick={_ => this.props.onClickHandler(this.props.onClickArgs)}
           style={{
             color: color[state],
             cursor: 'pointer',
