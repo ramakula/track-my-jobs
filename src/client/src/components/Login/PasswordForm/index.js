@@ -55,7 +55,7 @@ const PasswordForm = props => {
           <c.StyledButton
             text="next"
             customStyle={JSON.stringify({ margin: '0 0 0 auto' })}
-            disabled={submitting}
+            submitting={submitting}
           />
         </div>
       </form>

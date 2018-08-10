@@ -44,7 +44,7 @@ export default reduxForm({
 
             <c.StyledButton
               customStyle={JSON.stringify({ margin: '0 0 0 auto' })}
-              disabled={submitting}
+              submitting={submitting}
               text="next"
             />
           </div>

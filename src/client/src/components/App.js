@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+import forts from '../pkgs/fortawesome';
 
 import * as c from './index';
 
 import store from '../_store';
 
 import { fontSize } from '../css/meta/font';
+
+forts.forEach(fort => library.add(fort));
 
 const style = {
   fontSize,

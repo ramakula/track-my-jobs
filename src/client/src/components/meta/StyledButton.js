@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import button from '../../css/button';
 
@@ -34,25 +35,24 @@ class StyledButton extends Component {
     const backgroundColor = this.state.colorSchema.backgroundColor;
     const textDecoration = this.state.colorSchema.textDecoration;
     const customStyle = this.props.customStyle || '{}';
+    const submitting = this.props.submitting;
 
     const state = this.state.curr;
 
     return (
-      // <div className="StyledButton">
       <button
         className="StyledButton"
-        // disabled={this.props.disabled}
-        disabled={this.props.disabled}
+        disabled={submitting}
         type="submit"
         style={{
           backgroundColor: backgroundColor[state],
           border: 'none',
           color: color[state],
-          cursor: this.props.disabled ? 'not-allowed' : 'pointer',
+          cursor: submitting ? 'not-allowed' : 'pointer',
           fontSize: textSizes.sm,
           height: '40px',
           margin: '0 auto',
-          opacity: this.props.disabled ? '0.2' : '1',
+          opacity: submitting ? '0.2' : '1',
           outline: 'red',
           textDecoration: textDecoration[state],
           width: '70px',
@@ -62,7 +62,11 @@ class StyledButton extends Component {
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
       >
-        {this.props.text}
+        {!submitting ? (
+          this.props.text
+        ) : (
+          <FontAwesomeIcon icon="spinner" spin />
+        )}
       </button>
       // </div>
     );
