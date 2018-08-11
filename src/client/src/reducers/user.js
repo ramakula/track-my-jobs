@@ -1,7 +1,7 @@
 import { u } from '../actions/index';
 
 const initialState = {
-  user: {},
+  // user: {},
   err: '',
 };
 

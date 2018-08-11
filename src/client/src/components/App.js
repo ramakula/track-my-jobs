@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistStore } from 'redux-persist';
 
 import forts from '../pkgs/fortawesome';
 
@@ -23,23 +25,27 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
-          <div className="App" style={style}>
-            <Switch>
-              <Route exact path="/about" component={c.Generic(c.About)} />
-              <Route
-                exact
-                path="/dashboard"
-                component={c.Generic(c.Dashboard)}
-              />
-              <Route exact path="/donate" component={c.Generic(c.Donate)} />
-              <Route exact path="/login" component={c.Generic(c.Login)} />
-              <Route exact path="/support" component={c.Generic(c.Support)} />
-              <Route exact path="/" component={c.Generic(c.Landing)} />
-              <Route path="/" component={c.Generic(c.Four04)} />
-            </Switch>
-          </div>
-        </Router>
+        <PersistGate loading={null} persistor={persistStore(store)}>
+          {/*
+        */}
+          <Router>
+            <div className="App" style={style}>
+              <Switch>
+                <Route exact path="/about" component={c.Generic(c.About)} />
+                <Route
+                  exact
+                  path="/dashboard"
+                  component={c.Generic(c.Dashboard)}
+                />
+                <Route exact path="/donate" component={c.Generic(c.Donate)} />
+                <Route exact path="/login" component={c.Generic(c.Login)} />
+                <Route exact path="/support" component={c.Generic(c.Support)} />
+                <Route exact path="/" component={c.Generic(c.Landing)} />
+                <Route path="/" component={c.Generic(c.Four04)} />
+              </Switch>
+            </div>
+          </Router>
+        </PersistGate>
       </Provider>
     );
   }

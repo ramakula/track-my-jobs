@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm, Field, getFormSyncErrors } from 'redux-form';
 
 import * as u from '../utils';
 import * as a from '../../../actions';
@@ -9,11 +9,12 @@ import * as a from '../../../actions';
 import * as c from './components';
 
 const FORM_NAME = u.formNames.password;
+const FIELD = 'password';
 
 const style = _ => ({});
 
 const PasswordForm = props => {
-  const { handleSubmit, submitting, history, email } = props;
+  const { handleSubmit, submitting, history, email, formSyncErrors } = props;
 
   const submit = async ({ password }, dispatch) => {
     return dispatch(
@@ -55,6 +56,7 @@ const PasswordForm = props => {
           <c.StyledButton
             text="next"
             customStyle={JSON.stringify({ margin: '0 0 0 auto' })}
+            error={formSyncErrors[FIELD] !== undefined}
             submitting={submitting}
             changeComp={props.changeComp}
           />
@@ -67,12 +69,13 @@ const PasswordForm = props => {
 const mapStateToProps = state => {
   return {
     form: state.form,
+    formSyncErrors: getFormSyncErrors(FORM_NAME)(state),
   };
 };
 
 export default reduxForm({
   form: FORM_NAME,
-  fields: ['password'],
+  fields: [FIELD],
 })(
   connect(
     mapStateToProps,

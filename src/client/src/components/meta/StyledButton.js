@@ -36,6 +36,7 @@ class StyledButton extends Component {
     const textDecoration = this.state.colorSchema.textDecoration;
     const customStyle = this.props.customStyle || '{}';
     const submitting = this.props.submitting;
+    const error = this.props.error;
 
     const state = this.state.curr;
 
@@ -52,7 +53,7 @@ class StyledButton extends Component {
           fontSize: textSizes.sm,
           height: '40px',
           margin: '0 auto',
-          opacity: submitting ? '0.2' : '1',
+          opacity: submitting || error ? '0.2' : '1',
           outline: 'red',
           textDecoration: textDecoration[state],
           width: '70px',
@@ -68,7 +69,6 @@ class StyledButton extends Component {
           <FontAwesomeIcon icon="spinner" spin />
         )}
       </button>
-      // </div>
     );
   }
 }
