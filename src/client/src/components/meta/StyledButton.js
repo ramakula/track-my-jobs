@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import * as g from '../../globals';
+
 import button from '../../css/button';
 
 import { textSizes } from '../../css/meta/font';
@@ -66,7 +68,7 @@ class StyledButton extends Component {
         {!submitting ? (
           this.props.text
         ) : (
-          <FontAwesomeIcon icon="spinner" spin />
+          <FontAwesomeIcon icon={g.LOADING_ICON} spin />
         )}
       </button>
     );

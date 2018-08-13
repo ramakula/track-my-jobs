@@ -14,7 +14,7 @@ class Dashboard extends Component {
           {JSON.stringify(this.props.user)}
         </p>
 
-        <FontAwesomeIcon icon="spinner" spin />
+        <FontAwesomeIcon icon="circle-notch" spin />
       </div>
     );
   }

@@ -1,16 +1,33 @@
+/**
+ * JSX
+ * *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+ * React / Redux imports
+ * other imports
+ *
+ * components imports
+ * utils imports
+ * css imports
+ *
+ * init import (if applicable)
+ *
+ * `init()` (if applicable)
+ *
+ * constants
+ *
+ * export component
+ * *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+ *
+ */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import withSizes from 'react-sizes';
 
 import * as c from './components';
-
 import * as u from './utils';
-
 import * as css from './css';
 
-const EMAIL_FORM = u.formNames.email;
-const PASSWORD_FORM = u.formNames.password;
+const emailForm = u.formNames.email;
+const passwordForm = u.formNames.password;
 
 export default connect(
   state => ({}),
@@ -24,7 +41,7 @@ export default connect(
       };
 
       componentDidMount() {
-        this.setState({ curr: EMAIL_FORM });
+        this.setState({ curr: emailForm });
       }
 
       changeComp = (nextComp, email = this.state.email) => {
@@ -37,10 +54,10 @@ export default connect(
             <div className="FormContainer" style={css.FormContainer()}>
               {(_ => {
                 switch (this.state.curr) {
-                  case EMAIL_FORM:
+                  case emailForm:
                     return <c.EmailForm changeComp={this.changeComp} />;
 
-                  case PASSWORD_FORM:
+                  case passwordForm:
                     return (
                       <c.PasswordForm
                         changeComp={this.changeComp}

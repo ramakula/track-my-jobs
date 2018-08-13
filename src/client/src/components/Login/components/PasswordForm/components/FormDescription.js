@@ -1,10 +1,10 @@
 import React from 'react';
 
-import * as u from '../../../utils';
+import * as f from '../../../../../css/meta/font';
 
 import StyledDiv from '../../../../meta/StyledDiv/StyledDiv';
 
-import * as f from '../../../../../css/meta/font';
+import * as u from '../../../utils';
 
 const EMAIL_FORM = u.formNames.email;
 
@@ -28,6 +28,5 @@ export default props => (
       onClickHandler={props.changeComp}
       onClickArgs={EMAIL_FORM}
     />
-    {/* {props.email} */}
   </div>
 );

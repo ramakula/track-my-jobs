@@ -1,4 +1,6 @@
-import * as c from '../../css/meta/colors';
+import * as u from './utils';
+
+const c = u.c;
 
 export const Login = _ => ({
   height: '100%',

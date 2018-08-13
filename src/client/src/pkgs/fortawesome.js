@@ -1,5 +1,5 @@
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 
-const forts = [faSpinner];
+const forts = [faSpinner, faCircleNotch];
 
 export default forts;

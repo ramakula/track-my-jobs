@@ -1,6 +1,9 @@
 import CreateAccountLink from './CreateAccountLink';
-import FormDescription from './FormDescription';
+import EmailFormDescription from './EmailFormDescription';
 import RenderField from './RenderField';
-import StyledButton from '../../../../meta/StyledButton';
 
-export { CreateAccountLink, FormDescription, RenderField, StyledButton };
+import * as u from './utils';
+
+export const StyledButton = u.StyledButton;
+
+export { CreateAccountLink, EmailFormDescription, RenderField };

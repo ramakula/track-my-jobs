@@ -8,33 +8,32 @@ import * as u from './utils';
 
 import * as css from './css';
 
-const FORM_NAME = u.formNames.email;
-const PASSWORD_FORM = u.formNames.password;
-
 const field = 'email';
+const formName = u.formNames.email;
+const passwordForm = u.formNames.password;
 const v = u.validation;
 
 export default reduxForm({
-  form: FORM_NAME,
+  form: formName,
   fields: [field],
 })(
   connect(
     state => ({
       form: state.form,
-      formSyncErrors: getFormSyncErrors(FORM_NAME)(state),
+      formSyncErrors: getFormSyncErrors(formName)(state),
     }),
     {},
   )(props => {
-    const { handleSubmit, submitting, changeComp, formSyncErrors } = props;
+    const { changeComp, formSyncErrors, handleSubmit, submitting } = props;
 
     const submit = async ({ email }) => {
-      await u.submit.email({ email });
-      changeComp(PASSWORD_FORM, email);
+      await u.submit({ email });
+      changeComp(passwordForm, email);
     };
 
     return (
       <div className="EmailForm" style={css.EmailForm()}>
-        <c.FormDescription />
+        <c.EmailFormDescription />
 
         <form onSubmit={handleSubmit(submit)} style={css.form()}>
           <Field
