@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as f from '../../../../css/meta/font';
+import * as f from '../../../../../css/meta/font';
 
 export default _ => (
   <div className="FormDescription">

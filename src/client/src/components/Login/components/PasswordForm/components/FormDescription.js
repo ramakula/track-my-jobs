@@ -1,10 +1,10 @@
 import React from 'react';
 
-import * as u from '../../utils';
+import * as u from '../../../utils';
 
-import StyledDiv from '../../../meta/StyledDiv/StyledDiv';
+import StyledDiv from '../../../../meta/StyledDiv/StyledDiv';
 
-import * as f from '../../../../css/meta/font';
+import * as f from '../../../../../css/meta/font';
 
 const EMAIL_FORM = u.formNames.email;
 

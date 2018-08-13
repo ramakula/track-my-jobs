@@ -3,8 +3,8 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { reduxForm, Field, getFormSyncErrors } from 'redux-form';
 
-import * as u from '../utils';
-import * as a from '../../../actions';
+import * as u from '../../utils';
+import * as a from '../../../../actions';
 
 import * as c from './components';
 

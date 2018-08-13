@@ -1,7 +1,7 @@
 import React from 'react';
 
-import * as f from '../../../../css/meta/font';
-import * as c from '../../../../css/meta/colors';
+import * as f from '../../../../../css/meta/font';
+import * as c from '../../../../../css/meta/colors';
 
 export default class RenderField extends React.Component {
   render() {

@@ -2,6 +2,7 @@ import * as c from '../../css/meta/colors';
 
 export const Login = _ => ({
   height: '100%',
+  margin: '25px 0',
   textAlign: 'center',
 });
 

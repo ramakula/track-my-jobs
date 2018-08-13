@@ -1,8 +1,8 @@
 import React from 'react';
 
-import StyledLink from '../../../meta/StyledLink/StyledLink';
+import StyledLink from '../../../../meta/StyledLink/StyledLink';
 
-import * as f from '../../../../css/meta/font';
+import * as f from '../../../../../css/meta/font';
 
 export default _ => (
   <StyledLink

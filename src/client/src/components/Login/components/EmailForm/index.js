@@ -1,20 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import { reduxForm, Field, getFormSyncErrors } from 'redux-form';
 
-import * as u from '../utils';
-
 import * as c from './components';
+import * as u from './utils';
 
 import * as css from './css';
 
 const FORM_NAME = u.formNames.email;
 const PASSWORD_FORM = u.formNames.password;
-const FIELD = 'email';
+
+const field = 'email';
+const v = u.validation;
 
 export default reduxForm({
   form: FORM_NAME,
-  fields: [FIELD],
+  fields: [field],
 })(
   connect(
     state => ({
@@ -40,7 +42,7 @@ export default reduxForm({
             label="email"
             name="email"
             type="text"
-            validate={[u.validation.requiredEmail, u.validation.email]}
+            validate={[v.requiredEmail, v.email]}
           />
 
           <div className="BottomContainer" style={css.BottomContainer()}>
@@ -48,7 +50,7 @@ export default reduxForm({
 
             <c.StyledButton
               customStyle={JSON.stringify({ margin: '0 0 0 auto' })}
-              error={formSyncErrors[FIELD] !== undefined}
+              error={formSyncErrors[field] !== undefined}
               submitting={submitting}
               text="next"
             />
