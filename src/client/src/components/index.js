@@ -1,5 +1,6 @@
 import Generic from './meta/Generic';
 import Loading from './Loading';
+import Template from './Template';
 import _About from './Footer/About';
 import _Dashboard from './Dashboard';
 import _Donate from './Footer/Donate';
@@ -12,7 +13,7 @@ export const Dashboard = Generic(_Dashboard);
 export const About = Generic(_About);
 export const Donate = Generic(_Donate);
 export const Four04 = Generic(_Four04);
-export const Landing = Generic(_Landing);
+export const Landing = Template(_Landing);
 export const Login = Generic(_Login);
 export const Support = Generic(_Support);
 
