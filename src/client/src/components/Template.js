@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from './meta/Header';
-import Footer from './meta/Footer';
+import Footer from './Footer';
 
 export default ComposedComponent =>
   class extends Component {

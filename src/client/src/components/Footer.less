@@ -1,0 +1,28 @@
+.footer {
+  background: @dark;
+  color: @light;
+  display: flex;
+  flex-direction: column;
+  font-size: @fontSm;
+  min-height: 50px;
+  padding: 20px 0;
+
+  .links {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 0 5px;
+
+    .links__item {
+      font-size: @fontSm;
+      margin: 0 25px 10px 25px;
+    }
+  }
+
+  .copyright {
+    color: @translucent;
+    font-size: @fontXsm;
+    margin: 5px 0 0 0;
+    text-align: center;
+  }
+}

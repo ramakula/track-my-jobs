@@ -33,15 +33,15 @@ const Footer = _ => {
         }}
       >
         <div style={styleLinkHeader()}>
-          {styledLinkHelper('/about', 'About', backgroundColor)}
+          {styledLinkHelper('/about', 'about', backgroundColor)}
         </div>
 
         <div style={styleLinkHeader()}>
-          {styledLinkHelper('/support', 'Support', backgroundColor)}
+          {styledLinkHelper('/support', 'support', backgroundColor)}
         </div>
 
         <div style={styleLinkHeader()}>
-          {styledLinkHelper('/donate', 'Donate', backgroundColor)}
+          {styledLinkHelper('/donate', 'donate', backgroundColor)}
         </div>
       </div>
 
