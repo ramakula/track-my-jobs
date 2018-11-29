@@ -26,9 +26,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "less": "less-watch-compiler src src index.less"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "less": "^3.9.0",
+    "less-watch-compiler": "^1.13.0"
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
