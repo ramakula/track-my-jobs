@@ -12,7 +12,7 @@ import _Support from './Footer/Support';
 export const Dashboard = Generic(_Dashboard);
 export const About = Generic(_About);
 export const Donate = Generic(_Donate);
-export const Four04 = Generic(_Four04);
+export const Four04 = Template(_Four04);
 export const Landing = Template(_Landing);
 export const Login = Generic(_Login);
 export const Support = Generic(_Support);

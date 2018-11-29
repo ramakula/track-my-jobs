@@ -10,7 +10,7 @@ export default ComposedComponent =>
         <div className="Template">
           <Header />
 
-          <ComposedComponent />
+          <ComposedComponent history={this.props.history} />
 
           <Footer />
         </div>
