@@ -146,7 +146,7 @@ body {
   color: #fff;
   display: flex;
   flex-direction: column;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   min-height: 50px;
   padding: 20px 0;
 }
@@ -157,12 +157,19 @@ body {
   padding: 0 5px;
 }
 .footer .links .links__item {
-  font-size: 1.15rem;
+  color: #fff;
+  padding: 2px;
+  text-decoration: none;
+  font-size: 1.1rem;
   margin: 0 25px 10px 25px;
+}
+.footer .links .links__item:hover {
+  color: #141414;
+  background-color: #fff;
 }
 .footer .copyright {
   color: #b1b1b1;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   margin: 5px 0 0 0;
   text-align: center;
 }
