@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default _ => (
   <div className="header">
     <Link className="header__link" to="/">
-      Track My Jobs
+      <h1>Track My Jobs</h1>
     </Link>
 
     <div className="portal">
