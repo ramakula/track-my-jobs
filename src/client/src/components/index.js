@@ -1,12 +1,12 @@
 import Loading from './Loading';
 import Template from './Template';
-import _About from './Footer/About';
+import _About from './Footer_old/About';
 import _Dashboard from './Dashboard';
-import _Donate from './Footer/Donate';
+import _Donate from './Footer_old/Donate';
 import _Four04 from './Four04';
 import _Landing from './Landing';
 import _Login from './Login';
-import _Support from './Footer/Support';
+import _Support from './Footer_old/Support';
 
 export const Dashboard = Template(_Dashboard);
 export const About = Template(_About);

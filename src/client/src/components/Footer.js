@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import styledLinkHelper from './meta/StyledLink/StyledLink.helper';
-
 export default _ => (
   <div className="footer">
     <div className="links">
