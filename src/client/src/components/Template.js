@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Header from './meta/Header';
+import Header from './Header';
 import Footer from './Footer';
 
 export default ComposedComponent =>
