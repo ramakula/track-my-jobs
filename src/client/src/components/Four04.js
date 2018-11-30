@@ -1,39 +1,21 @@
 import React, { Component } from 'react';
 
-import styledDivHelper from './meta/StyledDiv/StyledDiv.helper';
-import styledLinkHelper from './meta/StyledLink/StyledLink.helper';
-
-const style = _ => ({
-  height: '100%',
-  textAlign: 'center',
-});
-
-class Four04 extends Component {
+export default class extends Component {
   render() {
     return (
-      <div className="Four04" style={style()}>
-        <div>page not found!</div>
+      <div className="four04">
+        <h2 className="four04__title">page not found!</h2>
 
-        <div style={{ margin: '10px 0 0 0' }}>
-          {styledDivHelper(
-            this.props.history.goBack,
-            'return',
-            null,
-            JSON.stringify({ color: 'blue' }),
-          )}
+        <div className="four04__link">
+          <button onClick={_ => this.props.history.goBack()}>return</button>
         </div>
 
-        <div style={{ margin: '10px 0 0 0' }}>
-          {styledLinkHelper(
-            '/',
-            'return home',
-            null,
-            JSON.stringify({ color: 'blue' }),
-          )}
+        <div className="four04__link">
+          <button onClick={_ => this.props.history.push('/')}>
+            return home
+          </button>
         </div>
       </div>
     );
   }
 }
-
-export default Four04;
